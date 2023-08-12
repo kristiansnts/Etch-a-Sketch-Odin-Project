@@ -34,13 +34,24 @@ function sketch(box, colorVal){
     box.style.backgroundColor = color;
 }
 
-const colorPicker = document.querySelector('input[type="color"]');
-colorPicker.addEventListener("change", function(e) {
-    const colorVal = e.target.value;
+function sketchActive(e, colorVal){
     container.addEventListener('mousemove', (e) => {
+        colorVal !== 'white' ? container.style.cssText = "cursor: url('cursor/paint.cur'), auto;" : container.style.cssText = "cursor: url('cursor/eraser.cur'), auto;";
         if(e.target.classList.contains('box')){
             const box = e.target;
             sketch(box, colorVal);
         }
     })
+}
+
+const colorPicker = document.querySelector('input[type="color"]');
+colorPicker.addEventListener("change", function(e) {
+    const colorVal = e.target.value;
+    sketchActive(e, colorVal);
 });
+
+const erase = document.querySelector('.erase');
+erase.addEventListener('click', function(e){
+    const colorVal = e.target.id;
+    sketchActive(e, colorVal);
+})
