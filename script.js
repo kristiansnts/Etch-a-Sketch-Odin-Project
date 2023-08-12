@@ -1,4 +1,10 @@
 const container = document.querySelector('.container');
+const reset = document.querySelector('.reset');
+
+reset.addEventListener('click', function(){
+    const boxs = document.querySelectorAll('.box');
+    boxs.forEach(box => box.style.backgroundColor = "white");
+})
 
 let sketchSize = document.querySelector('input[type="range"]');
 sketchSize.addEventListener('change', function(e){
