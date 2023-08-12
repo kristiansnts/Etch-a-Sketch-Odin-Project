@@ -23,3 +23,12 @@
     flex-wrap: wrap;
     padding: 0;
 }
+
+.dot {
+    background-color: red;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}

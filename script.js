@@ -42,6 +42,12 @@ function sketchActive(e, colorVal){
             sketch(box, colorVal);
         }
     })
+    container.addEventListener('touchmove', (e) => {
+        [...e.changedTouches].forEach(touch => {
+            const target = document.elementFromPoint(touch.clientX, touch.clientY);
+            sketch(target, colorVal)
+        })
+    })
 }
 
 const colorPicker = document.querySelector('input[type="color"]');
